@@ -40,6 +40,7 @@ public class Amplifier {
 
     public void off(){
         isOn = false;
+        isSurroundSoundOn = false;
         System.out.println("Amplifier is now off");
     }
 
