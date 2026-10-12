@@ -13,7 +13,7 @@ public class Amplifier {
 
     public void setVolume(int volume) {
         ensureOn();
-        if( volume < MIN_VOLUME || volume > MAX_VOLUME){
+        if (volume < MIN_VOLUME || volume > MAX_VOLUME) {
             throw new IllegalArgumentException("Volume must be between " + MIN_VOLUME + " and " + MAX_VOLUME);
         }
         this.volume = volume;
@@ -22,7 +22,7 @@ public class Amplifier {
 
     public void setInputSource(InputSource inputSource) {
         ensureOn();
-        if(inputSource == null){
+        if (inputSource == null) {
             throw new IllegalArgumentException("Input source can't be null!");
         }
         this.inputSource = inputSource;
@@ -33,24 +33,24 @@ public class Amplifier {
         return isOn;
     }
 
-    public void on(){
+    public void on() {
         isOn = true;
         System.out.println("Amplifier is now on");
     }
 
-    public void off(){
+    public void off() {
         isOn = false;
         isSurroundSoundOn = false;
         System.out.println("Amplifier is now off");
     }
 
-    public void setSurroundSound(){
+    public void setSurroundSound() {
         ensureOn();
         isSurroundSoundOn = true;
         System.out.println("Surround sound on");
     }
 
-    private void ensureOn(){
+    private void ensureOn() {
         if (!isOn) {
             throw new IllegalStateException("Amplifier is off!");
         }

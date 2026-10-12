@@ -2,13 +2,7 @@ package facadepattern;
 
 public class Main {
 
-    void main(){
-
-
-
-
-
-
+    void main() {
 
 
     }

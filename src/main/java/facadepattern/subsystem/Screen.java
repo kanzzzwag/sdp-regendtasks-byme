@@ -7,16 +7,16 @@ public class Screen {
         return isDown;
     }
 
-    public void lower(){
-        if(isDown){
+    public void lower() {
+        if (isDown) {
             throw new IllegalStateException("Screen is already down!");
         }
         isDown = true;
         System.out.println("Screen lowered");
     }
 
-    public void raise(){
-        if(!isDown){
+    public void raise() {
+        if (!isDown) {
             throw new IllegalStateException("Screen is already raised!");
         }
         isDown = false;

@@ -2,7 +2,7 @@ package facadepattern.subsystem;
 
 public class Projector {
 
-    private enum Mode { WIDESCREEN, STANDARD }
+    private enum Mode {WIDESCREEN, STANDARD}
 
     private static final int WARM_UP_SECONDS = 3;
     private static final int ONE_SECOND_MS = 1000;
@@ -16,10 +16,10 @@ public class Projector {
         return isOn;
     }
 
-    public void on(){
+    public void on() {
         isOn = true;
         System.out.println("Projector warming up...");
-        for(int i = 1; i <= WARM_UP_SECONDS; i++){
+        for (int i = 1; i <= WARM_UP_SECONDS; i++) {
             System.out.println(i);
             waitOneSecond();
         }
@@ -27,7 +27,7 @@ public class Projector {
         System.out.println("Projector is now on");
     }
 
-    public void off(){
+    public void off() {
         isOn = false;
         isWarmedUp = false;
         System.out.println("Projector is now off");
@@ -35,20 +35,20 @@ public class Projector {
 
     public void setInputSource(InputSource inputSource) {
         ensureReady();
-        if(inputSource == null){
+        if (inputSource == null) {
             throw new IllegalArgumentException("Input source can't be null!");
         }
         this.inputSource = inputSource;
         System.out.println("Input source is now set to " + inputSource);
     }
 
-    public void setWideScreenMode(){
+    public void setWideScreenMode() {
         ensureReady();
         this.mode = Mode.WIDESCREEN;
         System.out.println("Screen mode set to widescreen");
     }
 
-    private void waitOneSecond(){
+    private void waitOneSecond() {
         try {
             Thread.sleep(ONE_SECOND_MS);
         } catch (InterruptedException e) {
@@ -57,11 +57,11 @@ public class Projector {
         }
     }
 
-    private void ensureReady(){
+    private void ensureReady() {
         if (!isOn) {
             throw new IllegalStateException("Projector is off!");
         }
-        if (!isWarmedUp){
+        if (!isWarmedUp) {
             throw new IllegalStateException("Projector isn't warmed up!");
         }
     }

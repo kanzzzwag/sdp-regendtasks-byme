@@ -9,25 +9,25 @@ public class PopcornPopper {
         return isOn;
     }
 
-    public void on(){
+    public void on() {
         isOn = true;
         System.out.println("Popcorn popper is turned on");
     }
 
-    public void pop(){
+    public void pop() {
         ensureOn();
         isPopping = true;
         System.out.println("Popcorn popper is popping");
     }
 
-    public void off(){
+    public void off() {
         ensureOn();
         isPopping = false;
         isOn = false;
         System.out.println("Popcorn popper is turned off");
     }
 
-    private void ensureOn(){
+    private void ensureOn() {
         if (!isOn) {
             throw new IllegalStateException("Popcorn popper is already off!");
         }
