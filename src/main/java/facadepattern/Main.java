@@ -1,9 +1,29 @@
 package facadepattern;
 
+import facadepattern.facade.HomeTheaterFacade;
+import facadepattern.subsystem.*;
+
 public class Main {
+    public static void main(String[] args) {
+        Amplifier amplifier = new Amplifier();
+        DVDPlayer dvdPlayer = new DVDPlayer();
+        Projector projector = new Projector();
+        Screen screen = new Screen();
+        TheaterLights theaterLights = new TheaterLights();
+        PopcornPopper popcornPopper = new PopcornPopper();
 
-    void main() {
+        HomeTheaterFacade homeTheater = new HomeTheaterFacade(
+                amplifier, dvdPlayer, projector, screen, theaterLights, popcornPopper);
 
+        System.out.println("=== Demo 1: normal movie night ===");
+        homeTheater.watchMovie("Inception");
+        homeTheater.endMovie();
 
+        System.out.println("\n=== Demo 2: ending a movie that is not playing ===");
+        try {
+            homeTheater.endMovie();
+        } catch (IllegalStateException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }
