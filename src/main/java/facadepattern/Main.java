@@ -1,6 +1,7 @@
 package facadepattern;
 
 import facadepattern.facade.HomeTheaterFacade;
+import facadepattern.facade.MusicFacade;
 import facadepattern.subsystem.*;
 
 public class Main {
@@ -25,5 +26,10 @@ public class Main {
         } catch (IllegalStateException e) {
             System.out.println("Error: " + e.getMessage());
         }
+
+        System.out.println("\n=== Demo 3: music mode (second facade) ===");
+        MusicFacade music = new MusicFacade(amplifier, theaterLights);
+        music.startMusic();
+        music.stopMusic();
     }
 }
