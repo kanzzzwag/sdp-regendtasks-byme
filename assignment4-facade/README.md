@@ -16,7 +16,7 @@ The client calls only `watchMovie("title")` and `endMovie()`.
 ## Project structure
 
 ```
-src/facadepattern/
+src/main/java/facadepattern/
 ├── Main.java                  ← Client (uses only the facades)
 ├── facade/
 │   ├── HomeTheaterFacade.java ← main facade: watchMovie(), endMovie()
@@ -48,8 +48,15 @@ src/facadepattern/
 
 ## How to run
 
-1. Open the project in IntelliJ IDEA (JDK 17).
+1. Open the `assignment4-facade` folder in IntelliJ IDEA (or import its `pom.xml`).
 2. Run `Main.java`.
+
+Or from the terminal, inside `assignment4-facade`:
+
+```bash
+javac -d out $(find src -name "*.java")
+java -cp out facadepattern.Main
+```
 
 The program shows 3 demos:
 1. A normal movie night (`watchMovie` → `endMovie`)
